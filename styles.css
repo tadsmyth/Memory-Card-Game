@@ -1,3 +1,11 @@
 body {
     background-color: green;
 }
+
+.container {
+    display: flex;
+}
+
+img {
+    width: 100px;
+}
