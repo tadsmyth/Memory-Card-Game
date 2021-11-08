@@ -27,6 +27,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
+    perspective: 1000px;
 }
 /* Card will take up 25% of the game board since there are many of them. */
 .card {
@@ -35,6 +36,9 @@ body {
     position: relative;
     margin: 5px;
     transform: scale(1);
+    /* add the 3d space and the effect length */
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 .card:active {
     transform: scale(.97);
@@ -82,3 +86,11 @@ body {
 	position:relative;
 	top:1px;
 }
+
+/* JS function styles */
+/* [x] target the flip class */
+/* [] rotate the img to look like it's turning over... */
+/* [] have the back img flip the opposite direction */
+ .card.flip {
+    transform: rotateY(180deg);
+ }
