@@ -52,6 +52,8 @@ body {
     width: 100%;
     padding: 20px;
     border-radius: 5px;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
 }
 
 .back-face {
@@ -60,6 +62,7 @@ body {
     width: 100%;
     padding: 20px;
     border-radius: 5px;
+    backface-visibility: hidden;
 }
 
 .new-game-btn {
