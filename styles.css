@@ -30,6 +30,7 @@ body {
     perspective: 1000px;
 }
 /* Card will take up 25% of the game board since there are many of them. */
+/*  Found a calc online to do the dimension math cause I suck at that lol */
 .card {
     width: calc(25% - 10px);
     height: calc(33.333% - 10px);
