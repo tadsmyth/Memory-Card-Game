@@ -1,4 +1,5 @@
 const cards = document.querySelectorAll('.card')
+const newGameBtn = document.querySelector('.new-game-btn')
 
 // [x] Create vars for the first and second card.
 // [x] Create a check to see if card has been flipped or not
@@ -20,6 +21,7 @@ let disableBoard = false
 
 function flipCard() {
     if (disableBoard == true) return
+    if (this === firstCard) return
     // adds the 'flip' class to any clicked card and removes it if it has the class
     this.classList.toggle('flip')
     //  check if card has been flipped for first time
@@ -31,9 +33,6 @@ function flipCard() {
     } else {
         cardBeenFlipped = false
         secondCard = this
-        //  checks to see if the func is reading the data from HTMl of each card
-        // console.log(firstCard.dataset.card)
-        // console.log(secondCard.dataset.card)
         
         if (firstCard.dataset.card === secondCard.dataset.card) {
             // Remove the click event so it can't be clicked again
@@ -53,25 +52,20 @@ function flipCard() {
     }
 }
 
-    //  disableCard to make sure it can't be clicked again. Maybe put this func inside a single func?
-function disableCard() {
 
-}
+// Shuffle Function
+// This func is wrapped inside an IIEF to exceute when the browser reloads
+(function shuffleBoard() {
+    cards.forEach(card => card.classList.remove('flip'))
+    
+    cards.forEach(cards => cards.style.order = Math.floor(Math.random() * 12 ) )
+})()
 
-
-// function matchCheck() {
-//     if (firstCard.dataset.card === secondCard.dataset.card) {
-//         // Remove the click event so it can't be clicked again
-//         firstCard.removeEventListener('click' , flipCard)
-//         secondCard.removeEventListener('click' , flipCard)
-//     } else if (secondCard.dataset.card === firstCard.dataset.card) {
-
-//     }
-// }
 
 //  Global event listeners
 
 cards.forEach(card => card.addEventListener('click' , flipCard))
+newGameBtn.addEventListener('click' , shuffleBoard)
 
 
 
