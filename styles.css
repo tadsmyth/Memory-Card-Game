@@ -7,7 +7,7 @@
 
 body {
     /* How to find higher qual imag for the background??? */
-    background-image: url(/imgs/casino\ felt\ background.jpeg);
+    background-image: url(imgs/casino\ felt\ background.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
